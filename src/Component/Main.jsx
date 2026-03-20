@@ -9,25 +9,26 @@ function Main() {
   const [items, setItems] = useState([]);
   const [name, setName] = useState("");
   const [search, setSearch] = useState("");
-  const[fetcherror,setfetchError] = useState(null);
+  const [fetcherror, setfetchError] = useState(null);
 
   useEffect(() => {
     // JSON.parse(localStorage.getItem("todo_list"));
-    const fetchItems = async() => {
-      try{
+    const fetchItems = async () => {
+      try {
         const response = await fetch(API_URL);
-        if(!response.ok) throw console.error("data not received");
+        if (!response.ok) throw console.error("data not received");
         const newItems = await response.json();
         console.log(newItems)
         setItems(newItems);
         setfetchError(null)
-      }catch(err){
-          setfetchError(err.message)
+      } catch (err) {
+        setfetchError(err.message)
       }
     }
-    (async()=> await fetchItems())()
+    (async () => await fetchItems())()
   }, []);
   const handleChange = (e) => {
+    console.log(e.target.value);
     setName(e.target.value);
   };
   const inputRef = useRef();
@@ -39,7 +40,7 @@ function Main() {
     const updateItems = { id: Date.now(), checked: false, name: name };
     const newItems = [...items, updateItems];
     setItems(newItems);
-    setName("");   
+    setName("");
   };
   const handlenewChange = (id) => {
     const newItems = items.map((item) =>
@@ -69,13 +70,13 @@ function Main() {
           inputRef={inputRef}
         />
         <main>
-          {fetcherror && <p>Error : {fetcherror}`</p>}
-        <Itemslist
-          items={items}
-          Search={search}
-          handlenewChange={handlenewChange}
-          handleDelete={handleDelete}
-        />
+          {fetcherror && <p>Error : {fetcherror}</p>}
+          <Itemslist
+            items={items}
+            Search={search}
+            handlenewChange={handlenewChange}
+            handleDelete={handleDelete}
+          />
         </main>
       </div>
       <div>
