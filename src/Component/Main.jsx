@@ -49,6 +49,7 @@ function Main() {
     setItems(newItems);
   };
   const handleDelete = (id) => {
+    console.log(`Item with id ${id} deleted`);
     const newItems = items.filter((item) => item.id !== id);
     setItems(newItems);
 
