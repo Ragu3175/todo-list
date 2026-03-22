@@ -43,6 +43,7 @@ function Main() {
     setName("");
   };
   const handlenewChange = (id) => {
+    console.log(id);
     const newItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
     );
