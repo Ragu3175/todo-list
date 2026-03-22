@@ -61,6 +61,7 @@ function Main() {
     <div className="Main1">
       <header id="headpart">
         <h1>TO DO LIST</h1>
+        <h3>Manage your daily tasks</h3>
       </header>
       <div className="main11">
         <Search Search={search} handleSearch={handleSearch} />
