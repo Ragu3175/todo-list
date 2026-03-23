@@ -64,11 +64,12 @@ function Main() {
       <header id="headpart">
         <h1>TO DO LIST</h1>
         <h3>Manage your daily tasks</h3>
+        <h2>about</h2>
       </header>
-      <div className="main11">
-        <Search Search={search} handleSearch={handleSearch} />
-        <Itemslist items={items} handleDelete={handleDelete} handlenewChange={handlenewChange} />
-        <Addbutton handleClick={handleClick} name={name} handleChange={handleChange} />
+      <div className="Main">
+        <Search onSearch={handleSearch} />
+        <Itemslist items={items} onDelete={handleDelete} onChange={handlenewChange} />
+        <Addbutton onClick={handleClick} value={name} onChange={handleChange} />
       </div>
     </div>
   );
