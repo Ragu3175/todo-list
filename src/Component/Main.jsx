@@ -58,6 +58,7 @@ function Main() {
   const handleSearch = (e) => {
     setSearch(e);
   };
+  // This is the main component of the todo list application
   return (
     <div className="Main1">
       <header id="headpart">
@@ -66,28 +67,9 @@ function Main() {
       </header>
       <div className="main11">
         <Search Search={search} handleSearch={handleSearch} />
-        <Addbutton
-          name={name}
-          handleChange={handleChange}
-          handleClick={handleClick}
-          inputRef={inputRef}
-        />
-        <main>
-          {fetcherror && <p>Error : {fetcherror}</p>}
-          <Itemslist
-            items={items}
-            Search={search}
-            handlenewChange={handlenewChange}
-            handleDelete={handleDelete}
-          />
-        </main>
-      </div>
-      <div>
-        <footer id="footer">
-          <h2>TOTAL ITEMS : {items.length}</h2>
-        </footer>
+        <Itemslist items={items} handleDelete={handleDelete} handlenewChange={handlenewChange} />
+        <Addbutton handleClick={handleClick} name={name} handleChange={handleChange} />
       </div>
     </div>
   );
 }
-export default Main;
