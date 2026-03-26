@@ -5,10 +5,12 @@ import Search from "./Search";
 import Itemslist from "./Itemslist";
 import Addbutton from "./Addbutton";
 function Main() {
+  // API endpoint for fetching and managing todo items
   const API_URL = "http://localhost:4000/items";
   const [items, setItems] = useState([]);
   const [name, setName] = useState("");
   const [search, setSearch] = useState("");
+  // State to store any errors encountered during data fetching
   const [fetcherror, setfetchError] = useState(null);
 
   useEffect(() => {
@@ -63,8 +65,8 @@ function Main() {
     <div className="Main1">
       <header id="headpart">
         <h1>TO DO LIST</h1>
-        <h3>Manage your daily tasks</h3>
-        <h2>about</h2>
+        <h4 className="main-subtitle">Organize your life, one task at a time.</h4>
+        <h2>Manage your daily tasks</h2>
       </header>
       <div className="Main">
         <Search onSearch={handleSearch} />
